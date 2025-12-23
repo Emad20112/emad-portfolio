@@ -1,5 +1,17 @@
 import { createApp } from 'vue'
-import './style.css'
 import App from './App.vue'
+import './style.css'
+// استيراد المكتبة والمحرك
+import Particles from "@tsparticles/vue3"
+import { loadSlim } from "@tsparticles/slim"
 
-createApp(App).mount('#app')
+const app = createApp(App)
+
+// تسجيل المكتبة عالمياً ليتعرف Vue على وسم <vue-particles>
+app.use(Particles, {
+  init: async engine => {
+    await loadSlim(engine);
+  },
+});
+
+app.mount('#app')
