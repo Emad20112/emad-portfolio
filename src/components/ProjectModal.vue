@@ -26,7 +26,7 @@
               <section class="detail-section">
                 <h3 class="section-header">
                   <span class="icon">📋</span>
-                  Overview
+                  نظرة عامة
                 </h3>
                 <p class="detail-text">{{ project.details.overview }}</p>
               </section>
@@ -35,7 +35,7 @@
               <section class="detail-section">
                 <h3 class="section-header">
                   <span class="icon">✨</span>
-                  Key Features
+                  أهم الميزات
                 </h3>
                 <ul class="feature-list">
                   <li v-for="(feature, index) in project.details.features" :key="index">
@@ -49,7 +49,7 @@
               <section v-if="project.details.adminFeatures" class="detail-section">
                 <h3 class="section-header">
                   <span class="icon">⚙️</span>
-                  Admin Panel Features
+                  ميزات لوحة التحكم
                 </h3>
                 <ul class="feature-list">
                   <li v-for="(feature, index) in project.details.adminFeatures" :key="index">
@@ -63,7 +63,7 @@
               <section class="detail-section">
                 <h3 class="section-header">
                   <span class="icon">🛠️</span>
-                  Technologies Used
+                  التقنيات المستخدمة
                 </h3>
                 <ul class="tech-list">
                   <li v-for="(tech, index) in project.details.technologies" :key="index">
@@ -77,7 +77,7 @@
               <section class="detail-section">
                 <h3 class="section-header">
                   <span class="icon">🎨</span>
-                  UI & Experience
+                  واجهة وتجربة المستخدم
                 </h3>
                 <div class="highlights-grid">
                   <div v-for="(highlight, index) in project.details.highlights" :key="index" class="highlight-card">
@@ -94,13 +94,13 @@
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                 </svg>
-                View Source Code
+                عرض الكود المصدري
               </a>
               <a v-if="project.demo" :href="project.demo" target="_blank" rel="noopener noreferrer" class="action-btn secondary">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <polygon points="5 3 19 12 5 21 5 3"></polygon>
                 </svg>
-                Watch Demo
+                مشاهدة العرض الحي
               </a>
             </div>
           </div>
@@ -141,13 +141,13 @@ defineEmits(['close'])
   overflow-y: auto;
 }
 
+[data-theme='light'] .modal-overlay {
+  background: rgba(255, 255, 255, 0.3);
+}
+
 /* Container - iOS-style Glassmorphism */
 .modal-container {
-  background: linear-gradient(
-    135deg,
-    rgba(30, 41, 59, 0.85) 0%,
-    rgba(15, 23, 42, 0.9) 100%
-  );
+  background: var(--card);
   backdrop-filter: blur(40px) saturate(200%);
   -webkit-backdrop-filter: blur(40px) saturate(200%);
   border-radius: 1.5rem;
@@ -160,9 +160,17 @@ defineEmits(['close'])
     0 0 0 1px rgba(255, 255, 255, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.2),
     inset 0 -1px 0 rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid var(--border);
   position: relative;
   animation: slideUp 0.4s ease-out;
+}
+
+[data-theme='light'] .modal-container {
+  box-shadow: 
+    0 25px 80px rgba(99, 102, 241, 0.15),
+    0 0 0 1px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
 .modal-container::before {
@@ -179,6 +187,15 @@ defineEmits(['close'])
     transparent 100%
   );
   z-index: 1;
+}
+
+[data-theme='light'] .modal-container::before {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    transparent 100%
+  );
 }
 
 .modal-container::after {
@@ -219,9 +236,9 @@ defineEmits(['close'])
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: white;
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  color: var(--text-main);
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -234,7 +251,7 @@ defineEmits(['close'])
 }
 
 .modal-close:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--border);
   transform: rotate(90deg);
 }
 
@@ -247,7 +264,7 @@ defineEmits(['close'])
 .modal-header {
   margin-bottom: 2.5rem;
   padding-bottom: 2rem;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 2px solid var(--border);
 }
 
 .modal-title {
@@ -262,7 +279,7 @@ defineEmits(['close'])
 }
 
 .modal-subtitle {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-muted);
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
@@ -275,9 +292,9 @@ defineEmits(['close'])
 }
 
 .pill {
-  background: rgba(102, 126, 234, 0.2);
-  border: 1px solid rgba(102, 126, 234, 0.4);
-  color: #a8b8ff;
+  background: rgba(102, 126, 234, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  color: var(--primary);
   padding: 0.4rem 1rem;
   border-radius: 2rem;
   font-size: 0.85rem;
@@ -319,7 +336,7 @@ defineEmits(['close'])
   font-size: 1.4rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: white;
+  color: var(--text-main);
 }
 
 .icon {
@@ -327,10 +344,11 @@ defineEmits(['close'])
 }
 
 .detail-text {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-muted);
   font-size: 1.05rem;
   line-height: 1.8;
   padding-left: 2.25rem;
+  padding-right: 2.25rem; /* For RTL */
 }
 
 /* Feature List */
@@ -338,11 +356,11 @@ defineEmits(['close'])
   list-style: none;
   padding: 0;
   margin: 0;
-  padding-left: 2.25rem;
+  padding-right: 2.25rem; /* For RTL */
 }
 
 .feature-list li {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-muted);
   padding: 0.5rem 0;
   display: flex;
   align-items: flex-start;
@@ -352,7 +370,7 @@ defineEmits(['close'])
 }
 
 .bullet {
-  color: #667eea;
+  color: var(--primary);
   font-weight: bold;
   flex-shrink: 0;
 }
@@ -362,14 +380,14 @@ defineEmits(['close'])
   list-style: none;
   padding: 0;
   margin: 0;
-  padding-left: 2.25rem;
+  padding-right: 2.25rem; /* For RTL */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 0.75rem;
 }
 
 .tech-list li {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-muted);
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -386,12 +404,12 @@ defineEmits(['close'])
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
-  padding-left: 2.25rem;
+  padding-right: 2.25rem; /* For RTL */
 }
 
 .highlight-card {
-  background: rgba(102, 126, 234, 0.1);
-  border: 1px solid rgba(102, 126, 234, 0.3);
+  background: var(--bg-light);
+  border: 1px solid var(--border);
   padding: 1rem;
   border-radius: 0.75rem;
   display: flex;
@@ -399,16 +417,17 @@ defineEmits(['close'])
   gap: 0.75rem;
   transition: all 0.3s ease;
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--text-main);
 }
 
 .highlight-card:hover {
-  background: rgba(102, 126, 234, 0.2);
+  background: var(--bg);
+  border-color: var(--primary-soft);
   transform: translateY(-2px);
 }
 
 .highlight-check {
-  color: #4ade80;
+  color: var(--accent);
   font-weight: bold;
   font-size: 1.2rem;
   flex-shrink: 0;
@@ -420,7 +439,7 @@ defineEmits(['close'])
   gap: 1rem;
   padding-top: 2rem;
   margin-top: 2rem;
-  border-top: 2px solid rgba(255, 255, 255, 0.1);
+  border-top: 2px solid var(--border);
   flex-wrap: wrap;
 }
 
@@ -451,13 +470,13 @@ defineEmits(['close'])
 }
 
 .action-btn.secondary {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
-  color: white;
+  background: var(--bg-light);
+  border-color: var(--border);
+  color: var(--text-main);
 }
 
 .action-btn.secondary:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--border);
   transform: translateY(-3px);
 }
 

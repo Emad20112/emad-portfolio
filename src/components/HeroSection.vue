@@ -2,24 +2,22 @@
   <section id="hero" class="hero">
     <div>
       <div class="hero-image-container">
-        <img src="../assets/my.png" alt="Emad Faisal" class="hero-image" />
+        <img src="/my_image.png" alt="عماد فيصل الجماعي" class="hero-image" />
       </div>
-      <p class="hero-role">Software Engineer (Mobile - Flutter)& Backend (Laravel ,Node.js , Firebase)</p>
+      <p class="hero-role">مهندس برمجيات أول • معماري أنظمة (Flutter / Laravel / Node.js / Next.js)</p>
       <h1 class="hero-title">
-        Hi, I'm <span>Emad Faisal</span><br />
-        I build modern mobile apps & APIs.
+        مرحباً، أنا <span>عماد فيصل</span><br />
+        أبني أنظمة ويب وموبايل قابلة للتوسع.
       </h1>
       <p class="hero-text">
-        Mobile developer specialized in Flutter for Android & iOS, with strong backend
-        experience using Laravel and Firebase. I focus on performance, clean architecture,
-        and scalable APIs.
+        مهندس برمجيات بخبرة عملية 5+ سنوات في بناء وتوجيه تطوير أنظمة ويب وموبايل قابلة للتوسع (ERP، أنظمة مدارس، منصات تجارة إلكترونية، تطبيقات مالية). أركز على تحويل متطلبات الأعمال إلى حلول تقنية توفر وقت التشغيل، تقلل الأخطاء، وتحسّن تجربة المستخدم.
       </p>
 
       <div class="hero-badges">
-        <span class="badge">Flutter · Provider · Cubit · Bloc</span>
-        <span class="badge">Laravel · RESTful APIs</span>
-        <span class="badge">Firebase · MySQL · SQL Server</span>
-        <span class="badge">Git & GitHub · Clean Code</span>
+        <span class="badge">Flutter · Dart · Provider · Bloc</span>
+        <span class="badge">Laravel · Node.js · Next.js · Vue.js</span>
+        <span class="badge">MySQL · Firebase · SQLite</span>
+        <span class="badge">RESTful APIs · Clean Architecture</span>
       </div>
 
       <div class="btn-row">
@@ -29,7 +27,7 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          GitHub Profile
+          حسابي على جيت هب
         </a>
         <a
           class="btn secondary"
@@ -37,41 +35,49 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          LinkedIn
+          لينكد إن
         </a>
         <a class="btn outline" href="#" @click.prevent="downloadCV">
-          Download CV
+          تحميل السيرة الذاتية
         </a>
       </div>
     </div>
 
     <aside class="hero-card">
-      <div class="hero-card-title">Snapshot</div>
+      <div class="hero-card-title">لمحة سريعة</div>
 
-      <div class="card-label">Current Focus</div>
+      <div class="card-label">التركيز الحالي</div>
       <div class="card-value">
-        Flutter apps · Laravel & Node.js APIs · Realtime Firebase integrations
+        أنظمة ERP · تطبيقات Flutter · واجهات Laravel و Node.js · Next.js
       </div>
 
       <div class="divider"></div>
 
-      <div class="card-label">Core Stack</div>
+      <div class="card-label">التقنيات الأساسية</div>
       <div class="tech-tags">
         <span class="tech-tag">Flutter</span>
         <span class="tech-tag">Dart</span>
         <span class="tech-tag">Laravel</span>
         <span class="tech-tag">PHP</span>
         <span class="tech-tag">Node.js</span>
+        <span class="tech-tag">Express</span>
+        <span class="tech-tag">Next.js</span>
+        <span class="tech-tag">Vue.js</span>
+        <span class="tech-tag">TypeScript</span>
         <span class="tech-tag">Firebase</span>
         <span class="tech-tag">MySQL</span>
-        <span class="tech-tag">SQL Server</span>
         <span class="tech-tag">Git / GitHub</span>
       </div>
 
       <div class="divider"></div>
 
-      <div class="card-label">Based in</div>
-      <div class="card-value">Yemen · Available for remote work</div>
+      <div class="card-label">الخبرة</div>
+      <div class="card-value">5+ سنوات · 20+ مشروع Production</div>
+
+      <div class="divider"></div>
+
+      <div class="card-label">مقر العمل</div>
+      <div class="card-value">اليمن – إب · متاح للعمل عن بُعد</div>
     </aside>
   </section>
 </template>

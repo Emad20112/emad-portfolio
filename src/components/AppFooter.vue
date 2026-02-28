@@ -1,6 +1,6 @@
 <template>
   <footer>
-    © {{ year }} Emad Faisal · Built with Vue 3 & Vite
+    © {{ year }} عماد فيصل · تم بناؤه باستخدام Vue 3 و Vite
   </footer>
 </template>
 
