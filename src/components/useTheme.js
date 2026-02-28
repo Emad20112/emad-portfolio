@@ -1,6 +1,10 @@
 import { ref, onMounted } from 'vue'
 
-const theme = ref('dark')
+// Read initial theme from DOM (set by inline script in index.html before Vue mounts)
+const initialTheme = typeof document !== 'undefined'
+  ? (document.documentElement.getAttribute('data-theme') || 'dark')
+  : 'dark'
+const theme = ref(initialTheme)
 
 const applyTheme = (value) => {
   theme.value = value
@@ -13,9 +17,8 @@ export function useTheme() {
     const saved = localStorage.getItem('theme')
     if (saved === 'light' || saved === 'dark') {
       applyTheme(saved)
-    } else {
-      applyTheme('dark')
     }
+    // else keep whatever was set by the inline script (default: dark)
   })
 
   const toggleTheme = () => {

@@ -43,12 +43,43 @@ svg {
 
 body {
   font-family: 'Cairo', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: var(--bg);
-  background: radial-gradient(circle at top, var(--bg-light), var(--bg));
+  background-color: var(--bg);
+  background-image: radial-gradient(circle at top, var(--bg-light), var(--bg));
+  background-attachment: fixed;
+  min-height: 100vh;
   position: relative;
   color: var(--text-main);
   line-height: 1.6;
-  transition: background 0.4s ease, color 0.4s ease;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* iOS Safari: Force GPU acceleration on particles canvas */
+#tsparticles {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0;
+  pointer-events: none;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: contents;
+}
+
+#tsparticles canvas {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  position: fixed !important;
+}
+
+.app {
+  position: relative;
+  z-index: 1;
 }
 
 a {
@@ -60,6 +91,8 @@ a {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 1;
 }
 
 /* Navbar - iOS-style Glassmorphism */
