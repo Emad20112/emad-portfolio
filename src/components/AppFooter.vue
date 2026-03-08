@@ -1,6 +1,6 @@
 <template>
   <footer>
-    © {{ year }} عماد فيصل · تم بناؤه باستخدام Vue 3 و Vite
+    © {{ year }}     تطويري
   </footer>
 </template>
 
